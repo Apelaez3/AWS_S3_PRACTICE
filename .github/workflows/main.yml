@@ -9,8 +9,8 @@ jobs:
   deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Actualiza a la última versión
-      - uses: jakejarvis/s3-sync-action@v2  # Actualiza a una versión más reciente si disponible
+      - uses: actions/checkout@v3
+      - uses: aws-actions/s3-sync-action@v1  # Usa la versión oficial de AWS para sincronizar S3
         with:
           args: --delete
         env:
@@ -18,4 +18,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SOURCE_DIR: ./main
-
