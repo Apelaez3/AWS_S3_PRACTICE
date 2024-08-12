@@ -9,8 +9,14 @@ jobs:
   deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: jakejarvis/s3-sync-action@v0.5.0  # Usa una versión estable específica de s3-sync-action
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: List files
+        run: ls -alh
+
+      - name: Sync files to S3
+        uses: jakejarvis/s3-sync-action@v0.5.0
         with:
           args: --delete
         env:
