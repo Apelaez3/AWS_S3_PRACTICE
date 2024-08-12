@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: aws-actions/amazon-s3-sync-action@v1  # Usa la versión estable disponible de amazon-s3-sync-action
+      - uses: jakejarvis/s3-sync-action@v0.5.0  # Usa una versión estable específica de s3-sync-action
         with:
           args: --delete
         env:
